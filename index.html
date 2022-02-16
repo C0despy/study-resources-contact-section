@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+  <head>
+
+    <meta charset="utf-8">
+
+    <title>Study Resources Contact Section</title>
+
+    <link rel="stylesheet" href="/study-resources-contact-section/style.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  </head>
+
+  <body>
+
+<div class="contact-section">
+
+  <h1>Contact Us</h1>
+
+  <div class="border"></div>
+
+  <form class="contact-form" action="javascript:sendmail()" method="post">
+
+    <input type="text" id="Name" class="contact-form-text" placeholder="First Name">
+
+        <input type="text" id="Subject" class="contact-form-text" placeholder="last name">
+
+    <input type="email" id="Sender" class="contact-form-text" placeholder="Your email">
+
+  <!--  <input type="text" class="contact-form-text" placeholder="Your phone">-->
+
+    <textarea class="contact-form-text" if="Message" placeholder="Your message"></textarea>
+
+    <input type="submit" class="contact-form-btn" value="Send">
+
+  </form>
+
+</div>
+
+  <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+  <script>
+
+    function sendmail() {
+
+      var name = $('#Name').val();
+
+      var email = $('#Sender').val();
+
+      var subject = $('#Subject').val();
+
+      var message = $('#Message').val();
+
+      // var body = $('#body').val();
+
+      var Body = 'FistName: ' + name + '<br>LastName: ' + subject + '<br>Email: ' + email + '<br>Message: ' + message;
+
+      //console.log(name, phone, email, message);
+
+      Email.send({
+
+        Host: "smtp.elasticemail.com",
+
+        Username: "co8e.spy@gmail.com",
+
+        Password: "42B8121225DC0841FA1E0B33A1171FB60679",
+
+        To: 'a4akhare@gmail.com',
+
+        From: "co8e.spy@gmail.com",
+
+        Subject: "Contact Form submission by Study Resources Group",
+
+        Body: Body
+
+      }).then(
+
+        message => alert("your response has been submitted successfully, Thank You !")
+
+  );
+
+    }
+
+  </script>
+
+  </body>
+
+</html>
+
